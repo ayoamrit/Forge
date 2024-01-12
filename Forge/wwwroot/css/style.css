@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=VT323&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', serif;
+    user-select: none;
+    transition: 0.4s ease;
+}
+body{
+    background-color: #1f1f1f;
+    max-width: 1360px;
+    margin: auto;
+}
+ul{
+    display: flex;
+}
+li{
+    list-style-type: none;
+    margin: 0 20px;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+}
+.navLogo{
+    font-weight: bolder;
+}
+.cartIcon{
+    background-color: #bfbfbf;
+    color: black;
+    border: none;
+    padding: 5px 30px;
+    border-radius: 20px;
+}
+
+.cartIcon:hover{
+    background-color: #ffffff;
+}
+
+/*Cover Section Styling*/
+.cover {
+    background-image: url(https://wallpapercave.com/wp/wp4162204.jpg);
+    height: 85vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    border: none;
+    border-radius: 50px;
+    margin-top: 20px;
+    position: relative;
+}
+.coverText {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+}
+.gameTitle{
+    font-size: 3em;
+    font-weight: bold;
+}
+.gameDescription{
+    font-size: 0.9em;
+}
+
+/*CoverButton Styling*/
+.coverButton{
+    text-align: center;
+}
+.coverButton span{
+    cursor: pointer;
+    color: white;
+    font-size: 2em;
+    padding: 0 5px;
+}

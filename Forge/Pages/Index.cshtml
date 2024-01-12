@@ -1,0 +1,30 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Discover";
+}
+
+<nav class="navbar">
+    <ul class="navLogo">
+        <li>Forge</li>
+    </ul>
+    <ul class="navLinks">
+        <li><a asp-area="" asp-page="/Index">Discover</a></li>
+        <li><a asp-area="" asp-page="">Browse</a></li>
+        <li><a asp-area="" asp-page="">News</a></li>
+        <li><a asp-area="" asp-page="">Library</a></li>
+        <li><a class="cartIcon" asp-area="" asp-page="">Cart</a></li>
+    </ul>
+</nav>
+
+<section class="cover" id="cover">
+    <div class="coverText">
+        <span id="gameTitle" class="gameTitle">Red Dead Redemption II</span>
+        <span id="gameDescription" class="gameDescription">Immersive journey through the Wild West of 1899. Play as Arthur Morgan in a morally intricate narrative, exploring a vast open world teeming with life and stunning landscapes.</span>
+    </div>
+</section>
+<section class="coverButton">
+    <span onclick="loadCover(1)">•</span>
+    <span onclick="loadCover(2)">•</span>
+    <span onclick="loadCover(0)">•</span>
+</section>
