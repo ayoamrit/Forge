@@ -1,15 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Forge.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Forge.Model;
 
 namespace Forge.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly DataContext _dataContext;
+        public  IEnumerable<Game> _dbGames { get; set; }
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(DataContext _dataContext)
         {
-            _logger = logger;
+            this._dataContext = _dataContext;
+            _dbGames = _dataContext.Game;
         }
 
         public void OnGet()

@@ -16,7 +16,14 @@
         <li><a class="cartIcon" asp-area="" asp-page="">Cart</a></li>
     </ul>
 </nav>
-
+<section class="connection">
+    @foreach(var name in Model._dbGames)
+    {
+        <ul>
+            <li>@name.Title</li>
+        </ul>
+    }
+</section>
 <section class="cover" id="cover">
     <div class="coverText">
         <span id="gameTitle" class="gameTitle">Red Dead Redemption II</span>

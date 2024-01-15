@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Forge.Data;
+
 namespace Forge
 {
     public class Program
@@ -8,6 +11,10 @@ namespace Forge
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddDbContext<DataContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
 
             var app = builder.Build();
 
