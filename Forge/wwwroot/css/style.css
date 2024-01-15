@@ -25,6 +25,13 @@ a{
     color: white;
 }
 
+/*Grid Style*/
+.grid{
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+}
+
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -84,4 +91,23 @@ a{
     color: white;
     font-size: 2em;
     padding: 0 5px;
+}
+
+/*Styling GameCard*/
+.gameCard{
+    color: #bfbfbf;
+    padding: 10px;
+    cursor: pointer;
+}
+.gameCard:hover{
+    background-color: #111111;
+}
+.gameCard img{
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+}
+.gameMessage{
+    color: #808080;
+    font-size: 0.8em;
 }

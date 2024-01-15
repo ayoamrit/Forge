@@ -16,14 +16,7 @@
         <li><a class="cartIcon" asp-area="" asp-page="">Cart</a></li>
     </ul>
 </nav>
-<section class="connection">
-    @foreach(var name in Model._dbGames)
-    {
-        <ul>
-            <li>@name.Title</li>
-        </ul>
-    }
-</section>
+
 <section class="cover" id="cover">
     <div class="coverText">
         <span id="gameTitle" class="gameTitle">Red Dead Redemption II</span>
@@ -35,3 +28,18 @@
     <span onclick="loadCover(2)">•</span>
     <span onclick="loadCover(0)">•</span>
 </section>
+
+<div class="gamesSection">
+    <section class="pickedGames grid">
+        @for(int x = 0; x < Model._dbGames.Count; x++)
+        {
+            string imagePath = @Model._dbGames[x].ImagePath;
+            <div class="gameCard">
+                <img class="gameCoverImage" src="@imagePath" alt="GameCover">
+                <p class="gameMessage">Base Game</p>
+                <p class="cardGameTitle">@Model._dbGames[x].Title</p>
+                <p class="gamePrice">CA$@Model._dbGames[x].Price</p>
+            </div>
+        }
+    </section>
+</div>

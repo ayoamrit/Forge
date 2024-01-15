@@ -10,10 +10,10 @@ namespace Forge.Data
 
         }
 
-        public DbSet<Game> Game { get; set; }
+        public DbSet<Game> Games { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Purchase> Purchases { get; set; }
-        public DbSet<UserLibrary> UserLibraries { get; set; }
+        public DbSet<UserLibrary> UserLibrary { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
