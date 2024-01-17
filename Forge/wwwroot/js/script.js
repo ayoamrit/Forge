@@ -28,3 +28,21 @@ function loadCover(backgroundCoverId) {
     gameTitle.innerHTML = backgroundCoverData[backgroundCoverId].title;
     gameDescription.innerHTML = backgroundCoverData[backgroundCoverId].description;
 }
+
+(function setUnrealEngineData() {
+    const engineVersion = document.getElementById("engineVersion");
+    const engineTitle = document.getElementById("engineName");
+    const engineHeading = document.getElementById("engineHeading");
+    const engineDescription = document.getElementById("engineDescription");
+
+    engineVersion.innerHTML = "5.3";
+    engineTitle.innerHTML = "Unreal Engine";
+    engineHeading.innerHTML = "Unreal Engine 5.3 Released";
+    engineDescription.innerHTML = "Get your hands on Unreal Engine 5.3 today. With this release, developers will gain access to expanded"+ 
+    "functionality in UE5's core rendering, development iteration, and virtual production workflows."+
+    "Plus, explore a slew of experimental rendering, animation, and simulation features!";
+
+    engineVersion.classList.add("engineBackgroundAnimation");
+    engineName.classList.add("engineBackgroundAnimation");
+
+})();

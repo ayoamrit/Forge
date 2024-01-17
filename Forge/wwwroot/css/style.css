@@ -7,6 +7,17 @@
     user-select: none;
     transition: 0.4s ease;
 }
+:root{
+    --gradient: linear-gradient(
+        45deg,
+        #845ec2,
+        #d65db1,
+        #ff6f91,
+        #ff9671,
+        #ffc75f,
+        #f9f871
+    );
+}
 body{
     background-color: #1f1f1f;
     max-width: 1360px;
@@ -105,9 +116,71 @@ a{
 .gameCard img{
     height: 350px;
     width: 100%;
-    object-fit: cover;
+    object-fit: fill;
 }
 .gameMessage{
     color: #808080;
     font-size: 0.8em;
+}
+.gameCardHeading{
+    padding: 10px;
+    color: #bfbfbf;
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/*Background animation*/
+@keyframes background-animation{
+    0%{
+        background-position: left;
+    }
+    100%{
+        background-position: right;
+    }
+}
+/*Styling unreal engine card*/
+.unrealEngine{
+    display: flex;
+    cursor: pointer;
+    margin: 100px 0;
+}
+
+.engineLeft{
+    width: 50%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 50px;
+}
+.engineLeft:hover{
+    background-color: #0a0a0a;
+}
+#engineVersion{
+    font-size: 7em;
+    font-weight: bolder;
+}
+#engineName{
+    font-size: 2em;
+}
+.engineBackgroundAnimation{
+    color: transparent;
+    background-image: var(--gradient);
+    background-clip: text;
+    background-size: 400%;
+    animation: background-animation 5s infinite alternate;
+}
+.engineRight{
+    width: 50%;
+    padding: 40px 10px;
+    background-color: #111111;
+}
+#engineHeading{
+    color: #bfbfbf;
+    font-size: 1.5em;
+}
+#engineDescription{
+    color: #bfbfbf;
+    padding: 10px 0;
+    font-size: 0.9em;
 }

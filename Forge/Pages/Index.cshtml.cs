@@ -9,6 +9,7 @@ namespace Forge.Pages
     {
         private readonly DataContext _dataContext;
         public  IList<Game> _dbGames { get; set; }
+        public string[] gameCardsHeading { get; set; } = { "Featured", "Top Sellers", "Most Played" };
 
         public IndexModel(DataContext _dataContext)
         {

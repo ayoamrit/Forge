@@ -29,17 +29,50 @@
     <span onclick="loadCover(0)">•</span>
 </section>
 
-<div class="gamesSection">
-    <section class="pickedGames grid">
-        @for(int x = 0; x < Model._dbGames.Count; x++)
-        {
-            string imagePath = @Model._dbGames[x].ImagePath;
-            <div class="gameCard">
-                <img class="gameCoverImage" src="@imagePath" alt="GameCover">
-                <p class="gameMessage">Base Game</p>
-                <p class="cardGameTitle">@Model._dbGames[x].Title</p>
-                <p class="gamePrice">CA$@Model._dbGames[x].Price</p>
-            </div>
-        }
-    </section>
-</div>
+<!--Using the for loop to display all the game cards-->
+@for(int y = 0; y < Model.gameCardsHeading.Length; y++)
+{   
+    //Get count of the elements in the games list, elements = 15
+    int dbGamesCount = Model._dbGames.Count;
+
+    //Get count of the elements in the heading list. elements = 3;
+    int cardsHeadingLength = Model.gameCardsHeading.Length;
+
+    //Displaying 5 elements per row, leftPointer indicates to the left hand side
+    int leftPointer = (dbGamesCount/cardsHeadingLength) * y;
+    //RightPointer will indicate end of the elements in the games list
+    int rightPointer = (dbGamesCount / cardsHeadingLength) * y + 5;
+
+    <div class="gamesSection">
+
+        <!--Displaying heading-->
+        <p class="gameCardHeading">@Model.gameCardsHeading[y]</p>
+        <section class="pickedGames grid">
+
+            @while(leftPointer < rightPointer){
+                string imagePath = @Model._dbGames[leftPointer].ImagePath;
+                <div class="gameCard">
+                    <img class="gameCoverImage" src="@imagePath" alt="GameCover">
+                    <p class="gameMessage">Base Game</p>
+                    <p class="cardGameTitle">@Model._dbGames[leftPointer].Title</p>
+                    <p class="gamePrice">CA$@Model._dbGames[leftPointer].Price</p>
+                </div>
+
+                //Increment the leftPointer to print the next element, and push loop towards its end
+                leftPointer++;
+            }
+        </section>
+    </div>
+}
+
+<section class="unrealEngine">
+    <div class="engineLeft">
+        <span id="engineVersion"></span>
+        <p id="engineName"></p>
+    </div>
+    <div class="engineRight">
+        <span id="engineHeading"></span>
+        <p id="engineDescription"></p>
+    </div>
+</section>
+
