@@ -7,8 +7,113 @@
     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
 </head>
 <body>
+    <nav class="navbar">
+        <ul class="navLogo">
+            <li>Forge</li>
+        </ul>
+        <ul class="navLinks">
+            <li><a asp-area="" asp-page="/Index">Discover</a></li>
+            <li><a asp-area="" asp-page="Browse/Index">Browse</a></li>
+            <li><a asp-area="" asp-page="ViewGameContent/GameContent" asp-route-name="word">News</a></li>
+            <li><a asp-area="" asp-page="">Library</a></li>
+            <li><a class="cartIcon" asp-area="" asp-page="">Cart</a></li>
+        </ul>
+    </nav>
 
     @RenderBody()
+
+    <footer>
+        <div class="footerLinks footerLink">
+            <div class="purchaseFooter">
+                <p>Purchase</p>
+                <ul>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Forge Ads</a></li>
+                    <li><a href="#">Subscription</a></li>
+                    <li><a href="#">Asset Store</a></li>
+                    <li><a href="#">Resellers</a></li>
+                </ul>
+            </div>
+            <div class="educationLinks">
+                <p>Education</p>
+                <ul>
+                    <li><a href="#">Students</a></li>
+                    <li><a href="#">Educators</a></li>
+                    <li><a href="#">Certification</a></li>
+                    <li><a href="#">Learn</a></li>
+                    <li><a href="#">Center of Excellence</a></li>
+                </ul>
+            </div>
+            <div class="downloadLinks">
+                <p>Download</p>
+                <ul>
+                    <li><a href="#">Get Forge</a></li>
+                    <li><a href="#">Download Archive</a></li>
+                    <li><a href="#">Beta Program</a></li>
+                </ul>
+            </div>
+            <div class="labsLinks">
+                <p>Forge Labs</p>
+                <ul>
+                    <li><a href="#">Labs</a></li>
+                    <li><a href="#">Publications</a></li>
+                </ul>
+            </div>
+            <div class="resourcesLinks">
+                <p>Resources</p>
+                <ul>
+                    <li><a href="#">Learn Platform</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Forge QA</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Services Status</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Made with Forge</a></li>
+                </ul>
+            </div>
+            <div class="forgeLinks">
+                <p>Forge</p>
+                <ul>
+                    <li><a href="#">Our Company</a></li>
+                    <li><a href="#">Brand</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Partners</a></li>
+                    <li><a href="#">Investors</a></li>
+                    <li><a href="#">Affiliates</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Social Impact</a></li>
+                    <li><a href="#">Inclusion & Diversity</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyrightFooter footerLink">
+            <span>Copyright &#169 2024 Forge Technologies</span>
+
+            <div class="copyrightLinks">
+                <ul>
+                    <li><a href="#">Legal</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookies</a></li>
+                    <li><a href="#">Do Not Sell or Share My Personal Information</a></li>
+                    <li><a href="#">Do Not Sell or Share My Personal Information</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="informationFooter footerLink">
+            "Forge", Forge logos, and other Forge trademarks are trademarks or registered trademarks of Forge Technologies
+            or affiliates in the Canada and elsewhere (<a href="#">more info here</a>). Other names or brands are 
+            trademarks of their respective owners.
+        </div>
+    </footer>
 
     <script src="~/js/script.js" asp-append-version="true"></script>
 

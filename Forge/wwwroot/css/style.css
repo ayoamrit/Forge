@@ -84,6 +84,7 @@ a{
     position: absolute;
     bottom: 50px;
     left: 50px;
+    z-index: 999;
 }
 .gameTitle{
     font-size: 3em;
@@ -91,17 +92,6 @@ a{
 }
 .gameDescription{
     font-size: 0.9em;
-}
-
-/*CoverButton Styling*/
-.coverButton{
-    text-align: center;
-}
-.coverButton span{
-    cursor: pointer;
-    color: white;
-    font-size: 2em;
-    padding: 0 5px;
 }
 
 /*Styling GameCard*/
@@ -140,10 +130,14 @@ a{
     }
 }
 /*Styling unreal engine card*/
-.unrealEngine{
+.engine{
     display: flex;
     cursor: pointer;
-    margin: 100px 0;
+    margin: 100px 0 0 0;
+}
+
+.engine:last-of-type{
+    margin-top: 40px;
 }
 
 .engineLeft{
@@ -156,11 +150,11 @@ a{
 .engineLeft:hover{
     background-color: #0a0a0a;
 }
-#engineVersion{
+.engineVersion{
     font-size: 7em;
     font-weight: bolder;
 }
-#engineName{
+.engineName{
     font-size: 2em;
 }
 .engineBackgroundAnimation{
@@ -172,15 +166,62 @@ a{
 }
 .engineRight{
     width: 50%;
-    padding: 40px 10px;
+    padding: 20px 10px;
     background-color: #111111;
 }
-#engineHeading{
+.engineRight:hover{
+    background-color:#0d0d0d;
+}
+.engineHeading{
     color: #bfbfbf;
     font-size: 1.5em;
 }
-#engineDescription{
+.engineDescription{
     color: #bfbfbf;
     padding: 10px 0;
     font-size: 0.9em;
+}
+
+/*Styling Footer*/
+footer {
+    background-color: black;
+    margin-top: 100px;
+    padding: 40px 20px;
+    font-size: 0.9em;
+    color: white;
+}
+footer a{
+    color: #bfbfbf;
+}
+footer a:hover{
+    color:white;
+}
+.footerLink{
+    padding: 20px 10px;
+}
+.footerLink:last-child{
+    padding-bottom: 50px;
+}
+.footerLinks{
+    display: flex;
+    justify-content: space-between;
+}
+.footerLinks ul{
+    flex-direction: column;
+}
+footer ul li{
+    margin: 0;
+    padding: 2px 0;
+}
+
+
+.copyrightLinks ul li:first-child{
+    margin: 0;
+}
+.copyrightLinks ul li{
+    margin: 0 20px;
+}
+
+.informationFooter{
+    max-width: 50%;
 }
