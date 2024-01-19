@@ -25,7 +25,7 @@
     //RightPointer will indicate end of the elements in the games list
     int rightPointer = (dbGamesCount / cardsHeadingLength) * y + 5;
 
-    <div class="gamesSection">
+    <div class="gamesSection" onclick="displayGameContent()">
 
         <!--Displaying heading-->
         <p class="gameCardHeading">@Model.gameCardsHeading[y]</p>

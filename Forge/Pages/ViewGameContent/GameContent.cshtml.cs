@@ -9,9 +9,9 @@ namespace Forge.Pages.ViewGameContent
         public IList<Game> gameList { get; set; }
         public string Firstname { get; set; }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(IList<Game> gameList)
         {
-            Firstname = "Amrit";
+            this.gameList = gameList;
             return Page();
         }
 

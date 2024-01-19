@@ -63,6 +63,7 @@
 
 })();
 
+//Function to set Unity Engine data
 (function setUnityEngineData() {
     const engineVersion = document.getElementById("unityEngineVersion");
     const engineTitle = document.getElementById("unityEngineName");
@@ -81,6 +82,7 @@
     engineTitle.classList.add("engineBackgroundAnimation");
 })();
 
+//Function to redirect to the original website of the engine
 function redirectToEngine(number) {
 
     let engineRedirectionLink = "";
@@ -102,4 +104,8 @@ function redirectToEngine(number) {
         var newTab = window.open(engineRedirectionLink, '_blank');
         newTab.focus();
     }
+}
+
+function displayGameContent() {
+    console.log("Amrit");
 }
