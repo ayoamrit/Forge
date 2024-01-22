@@ -12,7 +12,8 @@ namespace Forge.Pages.ViewGameContent
         public string GameTitle { get; set; } = String.Empty;
         public string GameDescription { get; set; } = String.Empty;
         public double GamePrice { get; set; }
-        public string GameCoverPath { get; set; } = String.Empty;
+        public string GameBackgroundImage { get; set; } = String.Empty;
+        public string GameCoverImage { get; set; } = String.Empty;
         private DataContext _dataContext;
 
         public GameContentModel(DataContext _dataContext)
@@ -34,7 +35,8 @@ namespace Forge.Pages.ViewGameContent
             this.GameTitle = _dataContext.Games.ToList()[GameID - 1].Title;
             this.GameDescription = _dataContext.Games.ToList()[GameID - 1].Description;
             this.GamePrice = (double) _dataContext.Games.ToList()[GameID - 1].Price;
-            this.GameCoverPath = $"https://raw.githubusercontent.com/ayoamrit/Forge/main/Forge/Resources/Cover/{GameID}c.jpg";
+            this.GameBackgroundImage = $"https://raw.githubusercontent.com/ayoamrit/Forge/main/Forge/Resources/Cover/{GameID}c.jpg";
+            this.GameCoverImage = _dataContext.Games.ToList()[GameID - 1].ImagePath;
         }
 
     }

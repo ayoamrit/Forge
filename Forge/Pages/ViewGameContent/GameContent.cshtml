@@ -4,8 +4,16 @@
     ViewData["Title"] = "Game";
 }
 
-<h1>Welcome to game content page</h1>
-<h1>Your game id is @Model.GameID</h1>
-<h1>Title is @Model.GameTitle</h1>
-<h1>Description @Model.GameDescription</h1>
-<h1>Price @Model.GamePrice</h1>
+<img class="contentGameBackground" src="@Model.GameBackgroundImage" alt="BackgroundImage" />
+<video class="contentGameBackground" autoplay muted loop><source src="D:\Project\Forge\Forge\Resources\play.mp4" type="video/mp4" /></video>
+
+<section class="gameContent">
+    <div class="gameContentImage">
+        <img class="contentGameCover" src="@Model.GameCoverImage" alt="CoverImage"/>
+    </div>
+    <div class="gameContentText">
+        <p class="contentGameTitle">@Model.GameTitle</p>
+        <p class="contentGameDescription">@Model.GameDescription</p>
+        <button class="contentGameButton">@Model.GamePrice</button>
+    </div>
+</section>

@@ -46,7 +46,7 @@ a{
 .navbar{
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 20px 0;
     color: white;
 }
 .navLogo{
@@ -224,4 +224,51 @@ footer ul li{
 
 .informationFooter{
     max-width: 50%;
+}
+
+/*----------------------------*/
+/*GameContentPage Styling*/
+
+.contentGameBackground{
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    height: 700px;
+}
+
+.gameContent{
+    display: flex;
+    background-color: #111111;
+    margin-top: 20px;
+    padding: 10px 10px 5px 10px;
+}
+.gameContentImage{
+    width: 30%;
+}
+.gameContentImage img{
+    width: 100%;
+    height: 500px;
+}
+.gameContentText{
+    width: 70%;
+    margin-left: 20px;
+}
+.contentGameTitle{
+    font-size: 3em;
+    color: white;
+}
+.contentGameDescription{
+    color: #bfbfbf;
+}
+.contentGameButton{
+    padding: 10px 40px;
+    font-size: 1.1em;
+    margin-top: 30px;
+    background: black;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.contentGameButton:hover{
+    background: #0d0d0d;
 }
