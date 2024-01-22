@@ -25,7 +25,7 @@
     //RightPointer will indicate end of the elements in the games list
     int rightPointer = (dbGamesCount / cardsHeadingLength) * y + 5;
 
-    <div class="gamesSection" onclick="displayGameContent()">
+    <div class="gamesSection">
 
         <!--Displaying heading-->
         <p class="gameCardHeading">@Model.gameCardsHeading[y]</p>
@@ -33,11 +33,16 @@
 
             @while(leftPointer < rightPointer){
                 string imagePath = @Model._dbGames[leftPointer].ImagePath;
-                <div class="gameCard">
+                int gameID = @Model._dbGames[leftPointer].GameID;
+                string gameTitle = @Model._dbGames[leftPointer].Title;
+                string gameDescription = @Model._dbGames[leftPointer].Description;
+                double gamePrice = (double) @Model._dbGames[leftPointer].Price;
+
+                <div class="gameCard" onclick="displayGameContent(@gameID)">
                     <img class="gameCoverImage" src="@imagePath" alt="GameCover">
                     <p class="gameMessage">Base Game</p>
-                    <p class="cardGameTitle">@Model._dbGames[leftPointer].Title</p>
-                    <p class="gamePrice">CA$@Model._dbGames[leftPointer].Price</p>
+                    <p class="cardGameTitle">@gameTitle</p>
+                    <p class="gamePrice">CA$@gamePrice</p>
                 </div>
 
                 //Increment the leftPointer to print the next element, and push loop towards its end

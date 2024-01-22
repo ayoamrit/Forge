@@ -106,6 +106,8 @@ function redirectToEngine(number) {
     }
 }
 
-function displayGameContent() {
-    console.log("Amrit");
+function displayGameContent(gameID) {
+
+    let url = '/ViewGameContent/GameContent?GameID=' + gameID;
+    window.location.href = url;
 }

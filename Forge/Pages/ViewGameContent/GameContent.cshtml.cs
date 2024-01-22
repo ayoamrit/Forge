@@ -1,18 +1,40 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Forge.Model;
+using Microsoft.Identity.Client;
+using Forge.Data;
 
 namespace Forge.Pages.ViewGameContent
 {
     public class GameContentModel : PageModel
     {
-        public IList<Game> gameList { get; set; }
-        public string Firstname { get; set; }
+        public int GameID { get; set; }
+        public string GameTitle { get; set; } = String.Empty;
+        public string GameDescription { get; set; } = String.Empty;
+        public double GamePrice { get; set; }
+        public string GameCoverPath { get; set; } = String.Empty;
+        private DataContext _dataContext;
 
-        public IActionResult OnGet(IList<Game> gameList)
+        public GameContentModel(DataContext _dataContext)
         {
-            this.gameList = gameList;
+            this._dataContext = _dataContext;
+        }
+
+        public IActionResult OnGet(int GameID)
+        {
+            this.GameID = GameID;
+            SetProperties();
+
+
             return Page();
+        }
+
+        private void SetProperties()
+        {
+            this.GameTitle = _dataContext.Games.ToList()[GameID - 1].Title;
+            this.GameDescription = _dataContext.Games.ToList()[GameID - 1].Description;
+            this.GamePrice = (double) _dataContext.Games.ToList()[GameID - 1].Price;
+            this.GameCoverPath = $"https://raw.githubusercontent.com/ayoamrit/Forge/main/Forge/Resources/Cover/{GameID}c.jpg";
         }
 
     }
