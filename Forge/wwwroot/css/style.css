@@ -272,3 +272,78 @@ footer ul li{
 .contentGameButton:hover{
     background: #0d0d0d;
 }
+
+/*System Requirements Styling*/
+.videoSection {
+    margin-top: 20px;
+    display: flex;
+    background-color: #111111;
+    color: white;
+    padding: 10px 10px 5px 10px;
+}
+.videoClip{
+    width: 50%;
+}
+.videoClip video{
+    width: 100%;
+    height: 100%;
+}
+.videoText{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.videoText p {
+    text-align: center;
+    font-size: 4em;
+    font-weight: bolder;
+    color: transparent;
+    background-image: var(--gradient);
+    background-clip: text;
+    background-size: 400%;
+    animation: background-animation 5s infinite alternate;
+}
+
+/*System Requirements Styling*/
+.systemRequirementButton{
+    background-color: #111111;
+    color: #bfbfbf;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.2em;
+}
+
+.active, .systemRequirementButton:hover{
+    background-color: #0d0d0d;
+}
+.systemRequirementButton:after{
+    content: '\002B';
+    color: #bfbfbf;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+.active:after{
+    content: "\2212";
+}
+.panel{
+    padding: 0 20px;
+    background-color: #0d0d0d;
+    max-height: 0;
+    overflow: hidden;
+}
+.requirementHeading{
+    color: #bfbfbf;
+    margin-top: 10px;
+}
+.requirementContent:last-of-type{
+    margin-bottom: 20px;
+}
+.requirementContent{
+    color: white;
+}

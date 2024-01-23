@@ -14,6 +14,7 @@ namespace Forge.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Purchase> Purchases { get; set; }
         public DbSet<UserLibrary> UserLibrary { get; set; }
+        public DbSet<SystemRequirement> SystemRequirements { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,6 +25,11 @@ namespace Forge.Data
             modelBuilder.Entity<UserLibrary>().HasOne(p => p.User).WithMany(p => p.UserLibraries).HasForeignKey(p => p.UserID);
 
             modelBuilder.Entity<UserLibrary>().HasKey(ul => new { ul.LibraryID, ul.GameID, ul.UserID, ul.PurchaseID });
+
+            modelBuilder.Entity<Game>().HasOne(sr => sr.SystemRequirement).WithOne(sr => sr.Game).HasForeignKey<SystemRequirement>(sr => sr.GameID);
+
+            modelBuilder.Entity<SystemRequirement>().HasKey(sr => sr.RequirementID);
+    
 
             base.OnModelCreating(modelBuilder);
         }

@@ -10,5 +10,6 @@
 
         //A game can be associated with multiple purchases, and a purchase belongs to one game.
         public ICollection<Purchase> Purchases { get; set; }
+        public SystemRequirement SystemRequirement { get; set; }
     }
 }

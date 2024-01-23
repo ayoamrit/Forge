@@ -19,6 +19,8 @@
     }
 ];
 
+
+
 //Function to set background cover data with a 5-second delay 
 (async function setBackgroundCover() {
     const cover = document.getElementById("cover");
@@ -111,3 +113,23 @@ function displayGameContent(gameID) {
     let url = '/ViewGameContent/GameContent?GameID=' + gameID;
     window.location.href = url;
 }
+
+function systemRequirement() {
+    var systemRequirementButton = document.getElementsByClassName("systemRequirementButton");
+    var x;
+
+    for (x = 0; x < systemRequirementButton.length; x++) {
+
+        systemRequirementButton[x].addEventListener("click", function () {
+            this.classList.toggle("active");
+            let requirementPanel = this.nextElementSibling;
+
+            if (requirementPanel.style.maxHeight) {
+                requirementPanel.style.maxHeight = null;
+            }
+            else {
+                requirementPanel.style.maxHeight = requirementPanel.scrollHeight + "px";
+            }
+        });
+    }
+};

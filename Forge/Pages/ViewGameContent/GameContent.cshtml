@@ -5,7 +5,6 @@
 }
 
 <img class="contentGameBackground" src="@Model.GameBackgroundImage" alt="BackgroundImage" />
-<video class="contentGameBackground" autoplay muted loop><source src="D:\Project\Forge\Forge\Resources\play.mp4" type="video/mp4" /></video>
 
 <section class="gameContent">
     <div class="gameContentImage">
@@ -17,3 +16,71 @@
         <button class="contentGameButton">@Model.GamePrice</button>
     </div>
 </section>
+
+@{
+    int randomNumber = Model.random.Next(0, 5);
+}
+
+<section class="videoSection">
+    <div class="videoClip">
+        <video autoplay muted loop><source src="@Model.GameVideoClip" type="video/mp4"</video>
+    </div>
+
+    <div class="videoText">
+        <p>Play Game</p>  
+    </div>
+</section>
+
+<div class="systemRequirement">
+    <div class="minimumSystemRequirement">
+        <button class="systemRequirementButton">Minimum System Requirements</button>
+        <div class="panel">
+            <p class="requirementHeading">Operating System</p>
+            <p class="requirementContent">@Model.systemRequirement.MinimumOS</p>
+
+            <p class="requirementHeading">Processor</p>
+            <p class="requirementContent">@Model.systemRequirement.MinimumProcessor</p>
+
+            <p class="requirementHeading">Memory</p>
+            <p class="requirementContent">@Model.systemRequirement.MinimumMemory</p>
+
+            <p class="requirementHeading">Storage</p>
+            <p class="requirementContent">@Model.systemRequirement.MinimumStorage</p>
+
+            <p class="requirementHeading">Graphics</p>
+            <p class="requirementContent">@Model.systemRequirement.MinimumGraphics</p>
+
+            <p class="requirementHeading">Additional Notes</p>
+            <p class="requirementContent">@Model.systemRequirement.AdditionalNotes</p>
+        </div>
+    </div>
+
+    <div class="recommendedSystemRequirement">
+        <button class="systemRequirementButton">Recommended System Requirements</button>
+        <div class="panel">
+            <p class="requirementHeading">Operating System</p>
+            <p class="requirementContent">@Model.systemRequirement.RecommendedOS</p>
+
+            <p class="requirementHeading">Processor</p>
+            <p class="requirementContent">@Model.systemRequirement.RecommendedProcessor</p>
+
+            <p class="requirementHeading">Memory</p>
+            <p class="requirementContent">@Model.systemRequirement.RecommendedMemory</p>
+
+            <p class="requirementHeading">Storage</p>
+            <p class="requirementContent">@Model.systemRequirement.RecommendedStorage</p>
+
+            <p class="requirementHeading">Graphics</p>
+            <p class="requirementContent">@Model.systemRequirement.RecommendedGraphics</p>
+
+            <p class="requirementHeading">Additional Notes</p>
+            <p class="requirementContent">@Model.systemRequirement.AdditionalNotes</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.onload = function () {
+        systemRequirement();
+    };
+</script>

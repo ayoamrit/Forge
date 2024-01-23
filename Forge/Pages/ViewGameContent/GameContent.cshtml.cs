@@ -14,19 +14,22 @@ namespace Forge.Pages.ViewGameContent
         public double GamePrice { get; set; }
         public string GameBackgroundImage { get; set; } = String.Empty;
         public string GameCoverImage { get; set; } = String.Empty;
+        public string GameVideoClip { get; set; } = String.Empty;
         private DataContext _dataContext;
+        public SystemRequirement systemRequirement { get; set; }
+        public Random random;
 
         public GameContentModel(DataContext _dataContext)
         {
             this._dataContext = _dataContext;
+            this.random = new Random();
         }
 
         public IActionResult OnGet(int GameID)
         {
             this.GameID = GameID;
             SetProperties();
-
-
+            
             return Page();
         }
 
@@ -37,6 +40,9 @@ namespace Forge.Pages.ViewGameContent
             this.GamePrice = (double) _dataContext.Games.ToList()[GameID - 1].Price;
             this.GameBackgroundImage = $"https://raw.githubusercontent.com/ayoamrit/Forge/main/Forge/Resources/Cover/{GameID}c.jpg";
             this.GameCoverImage = _dataContext.Games.ToList()[GameID - 1].ImagePath;
+            this.GameVideoClip = $"https://raw.githubusercontent.com/ayoamrit/Forge/main/Forge/Resources/play.mp4";
+
+            this.systemRequirement = _dataContext.SystemRequirements.ToList()[GameID - 1];
         }
 
     }
