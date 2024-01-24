@@ -28,6 +28,7 @@ namespace Forge.Pages.ViewGameContent
         public Random random;
         private readonly ILogger<GameContentModel> _logger;
 
+        //Init constructor
         public GameContentModel(DataContext _dataContext, ILogger<GameContentModel> logger)
         {
             this._dataContext = _dataContext;
@@ -109,7 +110,7 @@ namespace Forge.Pages.ViewGameContent
         {
             try
             {
-                return cartHandler.AddItem(GameID);
+                return cartHandler.AddItem(GameID, GameTitle, GamePrice);
             }
             catch (Exception)
             {

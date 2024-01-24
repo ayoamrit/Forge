@@ -22,10 +22,10 @@
             else
             {
                 //If the item is not in the cart, display the "Add to cart" button
-                <button onclick="AddToCartJS()" class="contentGameButton" id="cartItem">$@Model.GamePrice</button>
+                <button onclick="AddToCartJS()" class="contentGameButton" id="sendGameToCart">$@Model.GamePrice</button>
 
                 //Initially hide the "In Cart" button, it will be shown when the game has been added to the cart
-                <button class="contentGameButton" id="inCart" style="display: none;">In Cart</button>
+                <button class="contentGameButton" id="gameInCart" style="display: none;">In Cart</button>
             }
             
     </div>
@@ -41,8 +41,8 @@
         if (flag) {
 
             //Get the references to the "In Cart" and "Add To Cart" button
-            const itemInCart = document.getElementById("inCart");
-            const cartItem = document.getElementById("cartItem");
+            const itemInCart = document.getElementById("gameInCart");
+            const cartItem = document.getElementById("sendGameToCart");
 
             //Hide the "Add to cart" button and show the "In Cart" button
             cartItem.style.display = "none";

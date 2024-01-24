@@ -376,3 +376,85 @@ footer ul li{
 .requirementContent{
     color: white;
 }
+
+
+/*************************/
+/*CartPage*/
+/*CartSection styling*/
+.emptyCartText{
+    width: 100%;
+    height: 60vh;
+    font-size: 6em;
+    color: #bfbfbf;
+    font-weight: bolder;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartSection{
+    display: flex;
+    width: 100%;
+}
+
+.cartTable{
+    width: 70%;
+    background: #111111;
+    color: white;
+}
+.cartTable table{
+    border-collapse: collapse;
+    width: 100%;
+}
+.cartTable table tr th{
+    color: #bfbfbf;
+}
+td, th {
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even){
+    background-color: #0d0d0d;
+}
+.removeItemButton{
+    width: 10%;
+    text-align: center;
+    background-color: #6b1717;
+    cursor: pointer;
+}
+.removeItemButton:hover{
+    background-color: #921a1a;
+}
+
+.checkoutForm{
+    background: #0d0d0d;
+    width: 30%;
+    color: #bfbfbf;
+    padding: 10px;
+}
+.checkoutHeading{
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+.formFlex{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+.totalSection{
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+.checkoutButton{
+    width: 100%;
+    padding: 20px;
+    cursor: pointer;
+    background-color: #111111;
+    border: none;
+    color: white;
+}
+.checkoutButton:hover{
+    background-color: #1b1b1b;
+}
+

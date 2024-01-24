@@ -1,4 +1,85 @@
 ﻿@page
 @model Forge.Pages.Cart.CartIndexModel
 @{
+    ViewData["Title"] = "Cart";
 }
+
+
+@{
+    bool emptyCartFlag = false;
+    if(CartHandler.CartList.ItemList.Count <= 0)
+    {
+        emptyCartFlag = true;
+    }
+}
+
+@if (emptyCartFlag)
+{
+    <p class="emptyCartText">Empty</p>
+}
+else
+{
+    double subTotal = 0;
+    double digitalTax = 0;
+    double estimatedTotal = 0;
+    var itemList = CartHandler.CartList.ItemList;
+
+    for (int x = 0; x < itemList.Count; x++)
+    {
+        subTotal += itemList[x].GamePrice;
+    }
+
+    digitalTax = Math.Round((subTotal * @Model.DIGITALTAX), 2);
+    estimatedTotal = subTotal + digitalTax;
+    Model.totalCost = estimatedTotal;
+
+    <section class="cartSection">
+        <div class="cartTable">
+            <table>
+                <tr>
+                    <th>Serial</th>
+                    <th>Title</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                    <th>Remove</th>
+                </tr>
+
+                @{
+                    for (int x = 0; x < CartHandler.CartList.ItemList.Count; x++)
+                    {
+                            <tr>
+                                <td>@(x+1)</td>
+                                <td>@CartHandler.CartList.ItemList[x].GameTitle</td>
+                                <td>Base Game</td>
+                                <td>@CartHandler.CartList.ItemList[x].GamePrice</td>
+                                <td class="removeItemButton" onclick="remove(@x)">X</td>
+                            </tr>
+                    }
+                }
+            </table>
+        </div>
+        <div class="checkoutForm">
+            <div class="checkoutHeading">Order Summary</div>
+            <div class="subtotalSection formFlex">
+                <p class="text">Subtotal</p>
+                <p class="price">@subTotal</p>
+            </div>
+            <div class="digitalSection formFlex">
+                <p class="text">Digital Tax</p>
+                <p class="price">@digitalTax</p>
+            </div>
+            <div class="totalSection formFlex">
+                <p class="text">Estimated Total</p>
+                <p class="price">@estimatedTotal</p>
+            </div>
+
+            <button class="checkoutButton">CHECKOUT NOW</button>
+        </div>
+    </section>
+}
+
+<script>
+    function remove(item){
+        var str = @Model.RemoveItemFromList(item);
+    }
+</script>
