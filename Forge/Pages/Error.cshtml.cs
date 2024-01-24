@@ -8,9 +8,9 @@ namespace Forge.Pages
     [IgnoreAntiforgeryToken]
     public class ErrorModel : PageModel
     {
-        public string? RequestId { get; set; }
+        public string? Heading { get; set; }
+        public string? Message { get; set; }
 
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
         private readonly ILogger<ErrorModel> _logger;
 
@@ -19,9 +19,12 @@ namespace Forge.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+
+        public IActionResult OnGet()
         {
-            RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+            Heading = TempData["CustomErrorHeading"] as string;
+            Message = TempData["CustomErrorMessage"] as string;
+            return Page();
         }
     }
 }

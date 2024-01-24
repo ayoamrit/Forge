@@ -36,6 +36,7 @@ a{
     color: white;
 }
 
+
 /*Grid Style*/
 .grid{
     display: grid;
@@ -62,6 +63,34 @@ a{
 
 .cartIcon:hover{
     background-color: #ffffff;
+}
+
+
+/*ErrorPage Styling*/
+.errorSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 60vh;
+}
+.errorText{
+    font-size: 6em;
+    color: #bfbfbf;
+    border: none;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+.errorHeading{
+    font-size: 3em;
+    color: white;
+    border: none;
+    font-weight: bolder;
+}
+.errorMessage{
+    font-size: 1.1em;
+    color: #bfbfbf;
 }
 
 /*Cover Section Styling*/

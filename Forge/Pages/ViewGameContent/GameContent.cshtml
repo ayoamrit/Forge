@@ -13,11 +13,49 @@
     <div class="gameContentText">
         <p class="contentGameTitle">@Model.GameTitle</p>
         <p class="contentGameDescription">@Model.GameDescription</p>
-        <button class="contentGameButton">@Model.GamePrice</button>
+
+            @if (Model.cartHandler.Exist(Model.GameID))
+            {
+                //If the item is already in the cart, display the "In Cart" button
+                <button class="contentGameButton" id="inCart">In Cart</button>
+            }
+            else
+            {
+                //If the item is not in the cart, display the "Add to cart" button
+                <button onclick="AddToCartJS()" class="contentGameButton" id="cartItem">$@Model.GamePrice</button>
+
+                //Initially hide the "In Cart" button, it will be shown when the game has been added to the cart
+                <button class="contentGameButton" id="inCart" style="display: none;">In Cart</button>
+            }
+            
     </div>
 </section>
 
+<!--JavaScript section for handling the "Add to cart" functionality-->
+<script>
+    function AddToCartJS(){
+        //Call the server-side function to add the item to the cart and get the result
+       let flag = '@Model.AddToCart()';
+        
+       //Check whether the item has been added to the cart or not 
+        if (flag) {
+
+            //Get the references to the "In Cart" and "Add To Cart" button
+            const itemInCart = document.getElementById("inCart");
+            const cartItem = document.getElementById("cartItem");
+
+            //Hide the "Add to cart" button and show the "In Cart" button
+            cartItem.style.display = "none";
+            itemInCart.style.display = "block";
+        }
+        else{
+            throw "An error occurred: selected item has not been added to the cart";
+        }
+    }
+</script>
+
 @{
+    //Generate a random number between 0 and 5
     int randomNumber = Model.random.Next(0, 5);
 }
 
