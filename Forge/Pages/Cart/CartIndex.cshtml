@@ -4,6 +4,9 @@
     ViewData["Title"] = "Cart";
 }
 
+<script>
+    localStorage.setItem('dataKey', 'JS');
+</script>
 
 @{
     bool emptyCartFlag = false;
@@ -23,6 +26,10 @@ else
     double digitalTax = 0;
     double estimatedTotal = 0;
     var itemList = CartHandler.CartList.ItemList;
+    if(Request.Cookies["dataKey"] != null)
+    {
+        
+    }
 
     for (int x = 0; x < itemList.Count; x++)
     {
@@ -47,14 +54,14 @@ else
                 @{
                     for (int x = 0; x < CartHandler.CartList.ItemList.Count; x++)
                     {
-                            <tr>
-                                <td>@(x+1)</td>
-                                <td>@CartHandler.CartList.ItemList[x].GameTitle</td>
-                                <td>Base Game</td>
-                                <td>@CartHandler.CartList.ItemList[x].GamePrice</td>
-                                <td class="removeItemButton">X</td>
-                                
-                            </tr>
+                        <tr>
+                            <td>@(x+1)</td>
+                            <td>@CartHandler.CartList.ItemList[x].GameTitle</td>
+                            <td>Base Game</td>
+                            <td>@CartHandler.CartList.ItemList[x].GamePrice</td>
+                            <td class="removeItemButton" onclick="removeItem(this)" data-index="@x">X</td>
+                                    
+                        </tr>
                     }
                 }
             </table>

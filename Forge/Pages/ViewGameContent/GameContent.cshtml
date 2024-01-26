@@ -13,8 +13,9 @@
     <div class="gameContentText">
         <p class="contentGameTitle">@Model.GameTitle</p>
         <p class="contentGameDescription">@Model.GameDescription</p>
-
-            @if (Model.cartHandler.Exist(Model.GameID))
+        
+        <div id="buttonContainer"></div>
+@*             @if (validateExistence())
             {
                 //If the item is already in the cart, display the "In Cart" button
                 <button class="contentGameButton" id="inCart">In Cart</button>
@@ -26,7 +27,7 @@
 
                 //Initially hide the "In Cart" button, it will be shown when the game has been added to the cart
                 <button class="contentGameButton" id="gameInCart" style="display: none;">In Cart</button>
-            }
+            } *@
             
     </div>
 </section>
@@ -34,30 +35,71 @@
 <!--JavaScript section for handling the "Add to cart" functionality-->
 <script>
     function AddToCartJS(){
-        //Call the server-side function to add the item to the cart and get the result
-       let flag = '@Model.AddToCart()';
-        
-       //Check whether the item has been added to the cart or not 
-        if (flag) {
 
-            //Get the references to the "In Cart" and "Add To Cart" button
-            const itemInCart = document.getElementById("gameInCart");
-            const cartItem = document.getElementById("sendGameToCart");
+        localStorage.setItem("@Model.GameID", "@Model.GameID");
+        const itemInCart = document.getElementById("gameInCart");
+        const cartItem = document.getElementById("sendGameToCart");
 
-            //Hide the "Add to cart" button and show the "In Cart" button
-            cartItem.style.display = "none";
-            itemInCart.style.display = "block";
+        //Hide the "Add to cart" button and show the "In Cart" button
+        cartItem.style.display = "none";
+        itemInCart.style.display = "block";
+    }
+
+    // Define the validateExistence() function
+    function validateExistence() {
+        let value = localStorage.getItem("@Model.GameID", "@Model.GameID");
+        console.log(value);
+        console.log("@Model.GameID");
+        if (value !== null && value !== undefined) {
+            return true;
+        } else {
+            return false;
         }
-        else{
-            throw "An error occurred: selected item has not been added to the cart";
+    }
+
+    (function loadButton() {
+        if (validateExistence()) {
+            // If the item is already in the cart, create the "In Cart" button
+            console.log("Exist");
+            createInCartButton();
+        } else {
+            console.log("Does not");
+            // If the item is not in the cart, create the "Add to Cart" button
+            createAddToCartButton();
         }
+    })();
+
+    // Function to create the "Add to Cart" button
+    function createAddToCartButton() {
+        var buttonContainer = document.getElementById("buttonContainer");
+        var button = document.createElement("button");
+        button.setAttribute("class", "contentGameButton");
+        button.setAttribute("id", "sendGameToCart");
+        button.textContent = "$@Model.GamePrice";
+        button.onclick = AddToCartJS;
+        buttonContainer.appendChild(button);
+
+        // Create the "In Cart" button (initially hidden)
+        var inCartButton = document.createElement("button");
+        inCartButton.setAttribute("class", "contentGameButton");
+        inCartButton.setAttribute("id", "gameInCart");
+        inCartButton.textContent = "In Cart";
+        inCartButton.style.display = "none";
+        buttonContainer.appendChild(inCartButton);
+    }
+
+    // Function to create the "In Cart" button
+    function createInCartButton() {
+        var buttonContainer = document.getElementById("buttonContainer");
+        var button = document.createElement("button");
+        button.setAttribute("class", "contentGameButton");
+        button.setAttribute("id", "inCart");
+        button.textContent = "In Cart";
+        buttonContainer.appendChild(button);
     }
 </script>
 
-@{
-    //Generate a random number between 0 and 5
-    int randomNumber = Model.random.Next(0, 5);
-}
+</script>
 
 <section class="videoSection">
     <div class="videoClip">
