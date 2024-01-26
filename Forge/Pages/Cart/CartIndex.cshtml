@@ -52,7 +52,8 @@ else
                                 <td>@CartHandler.CartList.ItemList[x].GameTitle</td>
                                 <td>Base Game</td>
                                 <td>@CartHandler.CartList.ItemList[x].GamePrice</td>
-                                <td class="removeItemButton" onclick="remove(@x)">X</td>
+                                <td class="removeItemButton">X</td>
+                                
                             </tr>
                     }
                 }
@@ -77,9 +78,3 @@ else
         </div>
     </section>
 }
-
-<script>
-    function remove(item){
-        var str = @Model.RemoveItemFromList(item);
-    }
-</script>

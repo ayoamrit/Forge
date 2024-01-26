@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.JSInterop;
+using System.Runtime.CompilerServices;
 
 namespace Forge.Pages.Cart
 {
@@ -20,14 +21,6 @@ namespace Forge.Pages.Cart
         public IActionResult OnGet()
         {
             return Page();
-        }
-
-        [JSInvokable]
-        public string RemoveItemFromList(int gameIndexInList)
-        {
-            CartHandler.CartList.ItemList.RemoveAt(gameIndexInList);
-
-            return string.Empty;
         }
     }
 }
